@@ -1,10 +1,17 @@
 package com.company.projectappiume2e.features;
 
 import com.company.projectappiume2e.base.BaseTest;
+import com.company.projectappiume2e.pages.RedmineHomePage;
+import com.company.projectappiume2e.pages.RedmineLoginPage;
+import com.company.projectappiume2e.util.Urls;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class AndroidEmulatorRedmineLoginWebUITest extends BaseTest {
+
+    private static RedmineLoginPage redmineLoginPage;
 
 
     @Test
@@ -23,6 +30,15 @@ public class AndroidEmulatorRedmineLoginWebUITest extends BaseTest {
         cap.setCapability("avdArgs", "-port 5557");
 
         configAppiumDriver(cap);
+
+        driver.get(Urls.REDMINE_LOGIN);
+        redmineLoginPage = new RedmineLoginPage(driver);
+        RedmineHomePage redmineHomePage = redmineLoginPage.login("jhurtado", "passw0rd");
+
+        redmineHomePage.clickOnMobileMenu();
+
+        assertEquals("jhurtado", redmineHomePage.getUserLoggedMobileEmulation());
+
 
     }
 
