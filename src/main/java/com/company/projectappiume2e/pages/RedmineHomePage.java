@@ -31,15 +31,8 @@ public class RedmineHomePage extends Page{
     }
 
     public void clickOnMobileMenu(){
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        //WebDriverWait wait = new WebDriverWait(driver, 5);
-        //wait.until(ExpectedConditions.elementToBeClickable(menuMobileEmulationMenuButton));
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.elementToBeClickable(menuMobileEmulationMenuButton));
         driver.findElement(menuMobileEmulationMenuButton).click();
     }
 
