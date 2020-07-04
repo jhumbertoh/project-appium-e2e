@@ -15,6 +15,7 @@ public class BaseTest {
 
         try {
             driver = new AppiumDriver( new URL("http://localhost:4723/wd/hub"), capabilities);
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
