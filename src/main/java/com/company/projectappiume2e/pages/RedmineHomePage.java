@@ -2,6 +2,8 @@ package com.company.projectappiume2e.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RedmineHomePage extends Page{
 
@@ -29,6 +31,15 @@ public class RedmineHomePage extends Page{
     }
 
     public void clickOnMobileMenu(){
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //WebDriverWait wait = new WebDriverWait(driver, 5);
+        //wait.until(ExpectedConditions.elementToBeClickable(menuMobileEmulationMenuButton));
         driver.findElement(menuMobileEmulationMenuButton).click();
     }
 
@@ -52,5 +63,4 @@ public class RedmineHomePage extends Page{
 
         return new RedmineProjectsPage(driver);
     }
-
 }
